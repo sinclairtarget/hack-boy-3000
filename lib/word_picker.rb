@@ -27,6 +27,14 @@ class WordPicker
   end
 
   private
+  def cull_possible_words
+    @possible_words.delete_if do |word|
+      @choices.any? do |choice|
+        likeness(word, choice[:word]) != choice[:likeness]
+      end
+    end
+  end
+
   def likeness(w1, w2)
     likeness = 0
 
@@ -36,15 +44,6 @@ class WordPicker
 
     likeness
   end
-
-  def cull_possible_words
-    @possible_words.delete_if do |word|
-      @choices.any? do |choice|
-        likeness(word, choice[:word]) != choice[:likeness]
-      end
-    end
-  end
-
   # Looking to exclude words until there is only one
   # word - likeness hash
   # constraint satisfaction problem
