@@ -15,8 +15,8 @@ module Player
 
     begin
       puts "Potential passwords: #{picker}"
-      pick, done, is_certain = picker.pick_word
-      if is_certain
+      pick, done = picker.pick_word
+      if done
         puts "The password is '#{pick}'."
       else
         puts "Try '#{pick}'."
@@ -28,6 +28,8 @@ module Player
   end
   
   def self.play_auto_game(words, password)
-    puts "Playing auto game with words:\n#{words}\npassword:\n#{password}"
+    picker = WordPicker.new(words)
+
+
   end
 end
