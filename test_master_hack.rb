@@ -51,3 +51,4 @@ end
 puts "#{attempt_counts.length} tests completed."
 puts "Median attempts to win: #{median(attempt_counts)}"
 puts "Average attempts to win: #{median(attempt_counts)}"
+puts "Max attempts to win: #{attempt_counts.max}"
