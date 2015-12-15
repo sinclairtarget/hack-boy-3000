@@ -1,1 +1,4 @@
-javascripts/*.js
+public/*.js
+public/*.css
+public/*.map
+.sass-cache

@@ -1,9 +1,11 @@
-.PHONY: coffee clean
+.PHONY: sassy_coffee clean
 
-default: coffee
+default: sassy_coffee
 
-coffee:
-	coffee -c javascripts/*.coffee
+sassy_coffee:
+	coffee -cmo public javascripts/*.coffee
+	sass --update stylesheets:public
+	cp vendor/*.js public
 
 clean:
-	rm -f javascripts/*.js
+	rm -f public/*.js public/*.map public/*.css
