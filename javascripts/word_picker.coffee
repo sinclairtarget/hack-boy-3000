@@ -26,7 +26,6 @@ next_pick = (possible_words, past_picks) ->
   pick = null
   for word in possible_words
     word_score = score(word, possible_words)
-    console.log "assigning " + word_score + " to " + word
 
     if word_score > max_score
       pick = word
@@ -55,8 +54,6 @@ score = (word, possible_words) ->
   for key, val of likeness_hash
     sum += other_words_count - val
 
-  console.log likeness_hash
-  console.log "Likenesses count: " + likenesses_count
   sum / likenesses_count
 
 

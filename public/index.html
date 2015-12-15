@@ -103,11 +103,17 @@
       </div>
     </div>
     <div id="main-dialogue" class="hidden">
-      <p>Try <span id="word-pick"></span></p>
+      <p>Try "<span class="word-pick"></span>."</p>
       <p>What was the likeness?</p>
       <p>
-          <input class="password-entry" type="text">
+          <input id="likeness-entry" type="text">
       </p>
+      <div>
+        <button id="continue-btn">Continue</button>
+      </div>
+    </div>
+    <div id="end-dialogue" class="hidden">
+      <p>The password is "<span class="word-pick"></span>."</p>
     </div>
   </body>
 </html>
