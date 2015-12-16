@@ -1,8 +1,11 @@
 $terminal_green: #46704C;
-$text_color: #DDE7EB;
+$text_color: #D0D8DB;
+$background: #222623;
+$input_background: #BDD6BA;
+$placeholder_color: #6D7375;
 
 html, body {
-    background-color: black;
+    background-color: $background;
     margin: 0px;
 
     .header-bar {
@@ -12,35 +15,84 @@ html, body {
         padding-top: 20px;
         padding-bottom: 20px;
 
-        div {
-            width: 500px;
-        }
-
         h2, h4 {
             margin: 0px;
             text-align: center;
             line-height: 1.3em;
+            color: black;
         }
     }
 
     .centered-div {
         margin: auto;
+        width: 560px;
     }
 
-    h2, h4 {
-        font-family: Courier;
+    .centering-div {
+        text-align: center;
     }
 
-    p {
-        color: #DDE7EB;
+    h2, h3, h4, p {
         font-family: Courier;
+        color: $text_color;
     }
 
     .hidden {
         display: none;
     }
 
+    #page-container {
+        padding-top: 20px;
+    }
+
+    #possible-words-container {
+        padding-bottom: 20px;
+        border-bottom: 1px solid $text-color;
+    }
+
     #password-entry-fields {
-        padding-top: 10px;
+        padding-top: 20px;
+
+        .btn-holder {
+            margin-top: 16px;
+        }
+    }
+
+    input {
+        width: 360px;
+        height: 40px;
+        border-radius: 10px;
+        font-size: 22px;
+        font-family: Courier;
+        text-align: center;
+        background-color: $input_background;
+    }
+
+    ::-webkit-input-placeholder {
+        color: $placeholder_color;
+    }
+
+    :-moz-placeholder {
+        color: $placeholder_color;
+    }
+
+    ::-moz-placeholder {
+        color: $placeholder_color;
+    }
+
+    :-ms-input-placeholder {
+        color: $placeholder_color;
+    }
+
+    button {
+        color: $text_color;
+        font-family: Courier;
+        font-size: 16px;
+        text-align: center;
+        background-color: $background;
+        border: 1px solid $text_color;
+        width: 100px;
+        margin-left: 5px;
+        margin-right: 5px;
     }
 }
