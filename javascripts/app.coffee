@@ -9,7 +9,7 @@ $(document).ready ->
       possible_words.push word if word.length > 0
 
     console.log possible_words
-    $("#password-entry").addClass("hidden")
+    $("#password-entry-fields").addClass("hidden")
     $("#main-dialogue").removeClass("hidden")
 
     $("#possible-words").text(format_str_array(possible_words))
@@ -42,7 +42,7 @@ restart = () ->
   possible_words = []
   past_picks = []
 
-  $("#password-entry").removeClass("hidden")
+  $("#password-entry-fields").removeClass("hidden")
   $("#main-dialogue").addClass("hidden")
   $("#end-dialogue").addClass("hidden")
 

@@ -1,5 +1,46 @@
+$terminal_green: #46704C;
+$text_color: #DDE7EB;
+
 html, body {
+    background-color: black;
+    margin: 0px;
+
+    .header-bar {
+        background-color: $terminal_green;
+        border-top: 1px solid $text_color;
+        border-bottom: 1px solid $text_color;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        div {
+            width: 500px;
+        }
+
+        h2, h4 {
+            margin: 0px;
+            text-align: center;
+            line-height: 1.3em;
+        }
+    }
+
+    .centered-div {
+        margin: auto;
+    }
+
+    h2, h4 {
+        font-family: Courier;
+    }
+
+    p {
+        color: #DDE7EB;
+        font-family: Courier;
+    }
+
     .hidden {
         display: none;
+    }
+
+    #password-entry-fields {
+        padding-top: 10px;
     }
 }

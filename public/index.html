@@ -6,117 +6,125 @@
     <script src="app.js"></script>
   </head>
   <body>
-    <div id="password-entry">
-      <p>What are the possible passwords?</p>
-      <p>
-        <label>
-          1.
-          <input class="password-entry" type="text">
-        </label>
-      </p>
-      <p>
-        <label>
-          2.
-          <input class="password-entry" type="text">
-        </label>
-      </p>
-      <p>
-        <label>
-          3.
-          <input class="password-entry" type="text">
-        </label>
-      </p>
-      <p>
-        <label>
-          4.
-          <input class="password-entry" type="text">
-        </label>
-      </p>
-      <p>
-        <label>
-          5.
-          <input class="password-entry" type="text">
-        </label>
-      </p>
-      <p>
-        <label>
-          6.
-          <input class="password-entry" type="text">
-        </label>
-      </p>
-      <p>
-        <label>
-          7.
-          <input class="password-entry" type="text">
-        </label>
-      </p>
-      <p>
-        <label>
-          8.
-          <input class="password-entry" type="text">
-        </label>
-      </p>
-      <p>
-        <label>
-          9.
-          <input class="password-entry" type="text">
-        </label>
-      </p>
-      <p>
-        <label>
-          10.
-          <input class="password-entry" type="text">
-        </label>
-      </p>
-      <p>
-        <label>
-          11.
-          <input class="password-entry" type="text">
-        </label>
-      </p>
-      <p>
-        <label>
-          12.
-          <input class="password-entry" type="text">
-        </label>
-      </p>
-      <p>
-        <label>
-          13.
-          <input class="password-entry" type="text">
-        </label>
-      </p>
-      <p>
-        <label>
-          14.
-          <input class="password-entry" type="text">
-        </label>
-      </p>
-      <p>
-        <label>
-          15.
-          <input class="password-entry" type="text">
-        </label>
-      </p>
-      <div>
-        <button id="start-btn">Start</button>
+    <div class="header-bar">
+      <div class="centered-div">
+        <h2>HackBoy 3000</h2>
+        <h4>A Fallout Terminal Hacking Assistant</h4>
       </div>
     </div>
-    <div id="main-dialogue" class="hidden">
-      <p id="possible-words"></p>
-      <p>Try "<span class="word-pick"></span>."</p>
-      <p>What was the likeness?</p>
-      <p>
-          <input id="likeness-entry" type="text">
-      </p>
-      <div>
-        <button id="continue-btn">Continue</button>
+    <div id="page-container">
+      <div id="password-entry-fields">
+        <p>What are the possible passwords?</p>
+        <p>
+          <label>
+            1.
+            <input class="password-entry" type="text">
+          </label>
+        </p>
+        <p>
+          <label>
+            2.
+            <input class="password-entry" type="text">
+          </label>
+        </p>
+        <p>
+          <label>
+            3.
+            <input class="password-entry" type="text">
+          </label>
+        </p>
+        <p>
+          <label>
+            4.
+            <input class="password-entry" type="text">
+          </label>
+        </p>
+        <p>
+          <label>
+            5.
+            <input class="password-entry" type="text">
+          </label>
+        </p>
+        <p>
+          <label>
+            6.
+            <input class="password-entry" type="text">
+          </label>
+        </p>
+        <p>
+          <label>
+            7.
+            <input class="password-entry" type="text">
+          </label>
+        </p>
+        <p>
+          <label>
+            8.
+            <input class="password-entry" type="text">
+          </label>
+        </p>
+        <p>
+          <label>
+            9.
+            <input class="password-entry" type="text">
+          </label>
+        </p>
+        <p>
+          <label>
+            10.
+            <input class="password-entry" type="text">
+          </label>
+        </p>
+        <p>
+          <label>
+            11.
+            <input class="password-entry" type="text">
+          </label>
+        </p>
+        <p>
+          <label>
+            12.
+            <input class="password-entry" type="text">
+          </label>
+        </p>
+        <p>
+          <label>
+            13.
+            <input class="password-entry" type="text">
+          </label>
+        </p>
+        <p>
+          <label>
+            14.
+            <input class="password-entry" type="text">
+          </label>
+        </p>
+        <p>
+          <label>
+            15.
+            <input class="password-entry" type="text">
+          </label>
+        </p>
+        <div>
+          <button id="start-btn">Start</button>
+        </div>
       </div>
-    </div>
-    <div id="end-dialogue" class="hidden">
-      <p>The password is "<span class="word-pick"></span>."</p>
-      <div>
-        <button id="restart-btn">Restart</button>
+      <div id="main-dialogue" class="hidden">
+        <p id="possible-words"></p>
+        <p>Try "<span class="word-pick"></span>."</p>
+        <p>What was the likeness?</p>
+        <p>
+            <input id="likeness-entry" type="text">
+        </p>
+        <div>
+          <button id="continue-btn">Continue</button>
+        </div>
+      </div>
+      <div id="end-dialogue" class="hidden">
+        <p>The password is "<span class="word-pick"></span>."</p>
+        <div>
+          <button id="restart-btn">Restart</button>
+        </div>
       </div>
     </div>
   </body>
