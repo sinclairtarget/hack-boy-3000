@@ -3,13 +3,15 @@ past_picks = []
 last_pick = null
 
 $(document).ready ->
-  $("#start-btn").click ->
-    for input in $(".password-entry")
-      word = $(input).val()
-      possible_words.push word if word.length > 0
+  $("button").click ->
+    $(this).blur()
 
+  $("#add-btn").click ->
+    add_possible_word()
+
+  $("#start-btn").click ->
     console.log possible_words
-    $("#password-entry-fields").addClass("hidden")
+    $("#password-entry-container").addClass("hidden")
     $("#main-dialogue").removeClass("hidden")
 
     $("#possible-words").text(format_str_array(possible_words))
@@ -25,6 +27,33 @@ $(document).ready ->
 
   $("#restart-btn").click ->
     restart()
+
+  $("#password-entry").keydown (e) ->
+    console.log "key down!"
+    if e.keyCode == 13
+      add_possible_word()
+
+
+add_possible_word = () ->
+  $pass_entry = $("#password-entry")
+  word = $pass_entry.val()
+  if word.length == 0 or not is_correct_length(word)
+    return
+
+  $pass_entry.val("")
+  possible_words.push word
+  $("#possible-words").text(format_str_array(possible_words))
+  $pass_entry.focus()
+
+  if possible_words.length == 1
+    $("#start-btn").removeClass("hidden")
+
+
+is_correct_length = (word) ->
+  if possible_words.length > 0
+    word.length == possible_words[0].length
+  else
+    true
 
 
 make_pick = () ->
@@ -42,12 +71,10 @@ restart = () ->
   possible_words = []
   past_picks = []
 
-  $("#password-entry-fields").removeClass("hidden")
+  $("#password-entry-container").removeClass("hidden")
   $("#main-dialogue").addClass("hidden")
   $("#end-dialogue").addClass("hidden")
-
-  for input in $(".password-entry")
-    $(input).val("")
+  $("#password-entry").val("")
 
 
 format_str_array = (str_array) ->

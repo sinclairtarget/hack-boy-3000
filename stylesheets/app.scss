@@ -50,7 +50,7 @@ html, body {
         border-bottom: 1px solid $text-color;
     }
 
-    #password-entry-fields {
+    #password-entry-container {
         padding-top: 20px;
 
         .btn-holder {
@@ -94,5 +94,10 @@ html, body {
         width: 100px;
         margin-left: 5px;
         margin-right: 5px;
+
+        &:hover {
+            background-color: $text_color;
+            color: $background;
+        }
     }
 }
