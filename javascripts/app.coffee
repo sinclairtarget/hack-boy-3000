@@ -12,7 +12,7 @@ $(document).ready ->
   $("#start-btn").click ->
     console.log possible_words
     $("#password-entry-container").addClass("hidden")
-    $("#main-dialogue").removeClass("hidden")
+    $("#likeness-dialogue-container").removeClass("hidden")
 
     $("#possible-words").text(format_str_array(possible_words))
     make_pick()
@@ -61,10 +61,10 @@ make_pick = () ->
   last_pick = pick
 
   if is_certain
-    $("#main-dialogue").addClass("hidden")
+    $("#likeness-dialogue-container").addClass("hidden")
     $("#end-dialogue").removeClass("hidden")
 
-  $(".word-pick").text(pick)
+  $(".word-pick").text(pick.toUpperCase())
 
 
 restart = () ->
@@ -72,15 +72,17 @@ restart = () ->
   past_picks = []
 
   $("#password-entry-container").removeClass("hidden")
-  $("#main-dialogue").addClass("hidden")
+  $("#likeness-dialogue-container").addClass("hidden")
   $("#end-dialogue").addClass("hidden")
+  $("#start-btn").addClass("hidden")
   $("#password-entry").val("")
+  $("#possible-words").text("-")
 
 
 format_str_array = (str_array) ->
   ret_str = ""
   for str, i in str_array
-    ret_str += str
+    ret_str += str.toUpperCase()
     if i < str_array.length - 1
       ret_str += ", "
 
