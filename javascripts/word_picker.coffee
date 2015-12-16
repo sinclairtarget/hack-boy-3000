@@ -2,12 +2,18 @@ window.WordPicker or= {}
 
 
 WordPicker.pick_word = (possible_words, past_picks) ->
+  if possible_words.length is 1
+    return [possible_words[0], true]
+
   pick = next_pick possible_words, past_picks
-  is_certain = possible_words.length is 0
-  [pick, is_certain]
+  [pick, false]
 
 
 WordPicker.set_likeness = (word, likeness, possible_words, past_picks) ->
+  if likeness < word.length
+    word_index = possible_words.indexOf word
+    possible_words.splice word_index, 1
+
   past_picks.push { word: word, likeness: likeness }
   cull possible_words, past_picks
 
@@ -31,8 +37,6 @@ next_pick = (possible_words, past_picks) ->
       pick = word
       max_score = word_score
 
-  word_index = possible_words.indexOf pick
-  possible_words.splice word_index, 1
   pick
 
 
@@ -58,11 +62,7 @@ score = (word, possible_words) ->
 
 
 cull = (possible_words, past_picks) ->
-  indices_to_delete = []
-  for word, i in possible_words
+  for word, i in possible_words by -1
     for past_pick in past_picks
       if WordPicker.likeness(word, past_pick["word"]) != past_pick["likeness"]
-        indices_to_delete.push i
-
-  for index in indices_to_delete
-    possible_words.splice index, 1
+        possible_words.splice(i, 1)
