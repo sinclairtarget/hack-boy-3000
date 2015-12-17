@@ -3,10 +3,10 @@ window.WordPicker or= {}
 
 WordPicker.pick_word = (possible_words, past_picks) ->
   if possible_words.length is 1
-    return [possible_words[0], true]
+    return [possible_words[0], true, []]
 
-  pick = next_pick possible_words, past_picks
-  [pick, false]
+  [pick, likenesses] = next_pick possible_words, past_picks
+  [pick, false, likenesses]
 
 
 WordPicker.set_likeness = (word, likeness, possible_words, past_picks) ->
@@ -30,14 +30,16 @@ WordPicker.likeness = (w1, w2) ->
 next_pick = (possible_words, past_picks) ->
   max_score = -1
   pick = null
+  likenesses = null
   for word in possible_words
-    word_score = score(word, possible_words)
+    [word_score, word_likenesses] = score(word, possible_words)
 
     if word_score > max_score
       pick = word
       max_score = word_score
+      likenesses = word_likenesses
 
-  pick
+  [pick, likenesses]
 
 
 score = (word, possible_words) ->
@@ -54,11 +56,12 @@ score = (word, possible_words) ->
         likeness_hash[likeness] = 1
 
   sum = 0
-  likenesses_count = Object.keys(likeness_hash).length
+  likenesses = Object.keys(likeness_hash).map((e) -> parseInt(e))
+  likenesses_count = likenesses.length
   for key, val of likeness_hash
     sum += other_words_count - val
 
-  sum / likenesses_count
+  [sum / likenesses_count, likenesses]
 
 
 cull = (possible_words, past_picks) ->

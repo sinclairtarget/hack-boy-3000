@@ -10,26 +10,23 @@ $(document).ready ->
     add_possible_word()
 
   $("#start-btn").click ->
-    console.log possible_words
     $("#password-entry-container").addClass("hidden")
     $("#likeness-dialogue-container").removeClass("hidden")
 
     $("#possible-words").text(format_str_array(possible_words))
     make_pick()
 
-  $("#continue-btn").click ->
-    $likeness_input = $("#likeness-entry")
-    likeness = parseInt($likeness_input.val(), 10)
+  $("#likeness-btn-prototype").click ->
+    $btn = $(this)
+    likeness = $btn.data("likeness")
     WordPicker.set_likeness last_pick, likeness, possible_words, past_picks 
     $("#possible-words").text(format_str_array(possible_words))
     make_pick()
-    $likeness_input.val("")
 
   $("#restart-btn").click ->
     restart()
 
   $("#password-entry").keydown (e) ->
-    console.log "key down!"
     if e.keyCode == 13
       add_possible_word()
 
@@ -58,7 +55,7 @@ is_correct_length = (word) ->
 
 
 make_pick = () ->
-  [pick, is_certain] = WordPicker.pick_word possible_words, past_picks
+  [pick, is_certain, likenesses] = WordPicker.pick_word possible_words, past_picks
   last_pick = pick
 
   if is_certain
@@ -66,6 +63,12 @@ make_pick = () ->
     $("#end-dialogue-container").removeClass("hidden")
 
   $(".word-pick").text(pick.toUpperCase())
+
+  if likenesses.length > 0
+    likenesses.push pick.length # for if the word is the correct word
+    likenesses.sort()
+    clear_likeness_buttons()
+    add_likeness_buttons(likenesses)
 
 
 restart = () ->
@@ -79,6 +82,20 @@ restart = () ->
   $("#start-btn").addClass("hidden")
   $("#password-entry").val("")
   $("#possible-words").text("-")
+
+
+clear_likeness_buttons = () ->
+  $("#likeness-btns").empty()
+
+
+add_likeness_buttons = (likenesses) ->
+  $buttons = $("#likeness-btns")
+  for likeness in likenesses
+    $new_button = $("#likeness-btn-prototype").clone(true)
+    $new_button.text(likeness)
+    $new_button.data("likeness", likeness)
+    $new_button.removeClass("hidden")
+    $buttons.append($new_button)
 
 
 format_str_array = (str_array) ->
