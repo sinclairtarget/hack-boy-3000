@@ -47,6 +47,7 @@ add_possible_word = () ->
 
   if possible_words.length == 1
     $("#start-btn").removeClass("hidden")
+    $("#restart-btn-container").removeClass("hidden")
 
 
 is_correct_length = (word) ->
@@ -62,7 +63,7 @@ make_pick = () ->
 
   if is_certain
     $("#likeness-dialogue-container").addClass("hidden")
-    $("#end-dialogue").removeClass("hidden")
+    $("#end-dialogue-container").removeClass("hidden")
 
   $(".word-pick").text(pick.toUpperCase())
 
@@ -73,7 +74,8 @@ restart = () ->
 
   $("#password-entry-container").removeClass("hidden")
   $("#likeness-dialogue-container").addClass("hidden")
-  $("#end-dialogue").addClass("hidden")
+  $("#end-dialogue-container").addClass("hidden")
+  $("#restart-btn-container").addClass("hidden")
   $("#start-btn").addClass("hidden")
   $("#password-entry").val("")
   $("#possible-words").text("-")

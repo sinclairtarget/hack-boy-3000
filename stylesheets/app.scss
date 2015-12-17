@@ -1,12 +1,19 @@
 $terminal_green: #46704C;
 $text_color: #D0D8DB;
+$secondary_text_color: #AEB3B5;
 $background: #222623;
 $input_background: #BDD6BA;
 $placeholder_color: #6D7375;
+$footer_height: 130px;
 
-html, body {
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
     background-color: $background;
-    margin: 0px;
+    margin: 0 0 $footer_height;
 
     .header-bar {
         background-color: $terminal_green;
@@ -42,6 +49,10 @@ html, body {
     }
 
     #page-container {
+        padding-bottom: 20px;
+    }
+
+    #main-container {
         padding-top: 20px;
     }
 
@@ -52,10 +63,10 @@ html, body {
 
     #password-entry-container {
         padding-top: 20px;
+    }
 
-        .btn-holder {
-            margin-top: 16px;
-        }
+    .btn-holder {
+        margin-top: 16px;
     }
 
     input {
@@ -98,6 +109,26 @@ html, body {
         &:hover {
             background-color: $text_color;
             color: $background;
+        }
+    }
+
+    #footer {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: $footer_height;
+        width: 100%;
+
+        p {
+            font-family: Arial;
+            font-size: 12px;
+            color: $secondary_text_color;
+            line-height: 1.5em;
+        }
+
+        img { 
+            width: 52px;
+            height: 52px;
         }
     }
 }
