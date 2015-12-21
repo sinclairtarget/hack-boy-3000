@@ -3,7 +3,7 @@ HackBoy 3000 is a solver for the terminal hacking mini-game in the Fallout serie
 video games. 
 
 This repository includes a command-line version of the tool as well as a version
-written for the web. 
+written for the web. The web version is hosted [here](http://hackboy.sinclairtarget.com).
 
 ### Using HackBoy 3000 on the command line
 ```
