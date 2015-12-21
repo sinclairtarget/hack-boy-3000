@@ -33,8 +33,8 @@ $(document).ready ->
 
 add_possible_word = () ->
   $pass_entry = $("#password-entry")
-  word = $pass_entry.val()
-  if word.length == 0 or not is_correct_length(word)
+  word = $pass_entry.val().toUpperCase()
+  if word.length == 0 or not is_correct_length(word) or word in possible_words
     return
 
   $pass_entry.val("")
@@ -101,7 +101,7 @@ add_likeness_buttons = (likenesses) ->
 format_str_array = (str_array) ->
   ret_str = ""
   for str, i in str_array
-    ret_str += str.toUpperCase()
+    ret_str += str
     if i < str_array.length - 1
       ret_str += ", "
 
