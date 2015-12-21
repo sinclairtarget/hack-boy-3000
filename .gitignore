@@ -3,3 +3,4 @@ public/*.css
 public/*.map
 .sass-cache
 notes.txt
+deploy.sh
