@@ -111,8 +111,10 @@ body {
         margin-right: 5px;
 
         &:hover {
-            background-color: $text_color;
-            color: $background;
+            @media (min-width: 768px) {
+                background-color: $text_color;
+                color: $background;
+            }
         }
     }
 
