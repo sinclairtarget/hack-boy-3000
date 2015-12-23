@@ -4,7 +4,7 @@ $secondary_text_color: #AEB3B5;
 $background: #222623;
 $input_background: #BDD6BA;
 $placeholder_color: #6D7375;
-$footer_height: 130px;
+$footer_height: 145px;
 
 html {
     position: relative;
@@ -13,7 +13,7 @@ html {
 
 body {
     background-color: $background;
-    margin: 0 0 $footer_height;
+    margin: 0;
 
     .header-bar {
         background-color: $terminal_green;
@@ -32,7 +32,6 @@ body {
 
     .centered-div {
         margin: auto;
-        width: 560px;
     }
 
     .centering-div {
@@ -54,11 +53,13 @@ body {
 
     #main-container {
         padding-top: 20px;
+        padding-bottom: 20px;
     }
 
     #possible-words-container {
         padding-bottom: 20px;
         border-bottom: 1px solid $text-color;
+        width: 80%;
 
         p {
             line-height: 1.4em;
@@ -74,7 +75,6 @@ body {
     }
 
     input {
-        width: 360px;
         height: 40px;
         border-radius: 10px;
         font-size: 22px;
@@ -118,11 +118,13 @@ body {
         }
     }
 
-    #footer {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: $footer_height;
+    .footer {
+        @media (min-width: 768px) {
+            position: absolute;
+            bottom: 0;
+            height: $footer_height;
+        }
+
         width: 100%;
 
         p {

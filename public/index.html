@@ -1,5 +1,6 @@
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="app.css">
     <link rel="shortcut icon" href="favicon.ico">
     <script src="jquery-1.11.3.min.js"></script>
@@ -10,51 +11,63 @@
     </title>
   </head>
   <body>
-    <div id="page-container">
-      <div class="header-bar">
-        <div class="centered-div">
+    <div id="page-container container-fluid">
+      <div class="header-bar row">
+        <div class="col-md-12">
           <h2>HackBoy 3000</h2>
           <h4>A Fallout Terminal Hacking Assistant</h4>
         </div>
       </div>
       <div id="main-container">
-        <div id="possible-words-container" class="centered-div centering-div">
-          <h3>Potential Passwords:</h3>
-          <p id="possible-words">-</p>
-        </div>
-        <div id="password-entry-container" class="centered-div">
-          <div class="centering-div">
-            <input id="password-entry" type="text" placeholder="Enter a word...">
-          </div>
-          <div class="btn-holder centered-div centering-div">
-            <button id="add-btn">Add</button>
-            <button id="start-btn" class="hidden">Start</button>
+        <div class="row">
+          <div class="col-md-12">
+            <div id="possible-words-container" class="centered-div centering-div">
+              <h3>Potential Passwords:</h3>
+              <p id="possible-words">-</p>
+            </div>
           </div>
         </div>
-        <div id="likeness-dialogue-container" class="hidden centered-div centering-div">
-          <p>Try "<span class="word-pick"></span>."</p>
-          <p>What was the likeness?</p>
-          <button id="likeness-btn-prototype" class="hidden">24</button>
-          <div id="likeness-btns" class="btn-holder centered-div">
+        <div class="row">
+          <div id="password-entry-container" class="col-md-12">
+            <div class="centering-div">
+              <input id="password-entry" type="text" placeholder="Enter a word...">
+            </div>
+            <div class="btn-holder centering-div">
+              <button id="add-btn">Add</button>
+              <button id="start-btn" class="hidden">Start</button>
+            </div>
           </div>
         </div>
-        <div id="end-dialogue-container" class="hidden centered-div centering-div">
-          <p>The password is "<span class="word-pick"></span>."</p>
+        <div class="row">
+          <div id="likeness-dialogue-container" class="hidden col-md-12 centering-div">
+            <p>Try "<span class="word-pick"></span>."</p>
+            <p>What was the likeness?</p>
+            <button id="likeness-btn-prototype" class="hidden">24</button>
+            <div id="likeness-btns" class="btn-holder">
+            </div>
+          </div>
         </div>
-        <div id="restart-btn-container" class="btn-holder hidden centered-div centering-div">
-          <button id="restart-btn">Reset</button>
+        <div class="row">
+          <div id="end-dialogue-container" class="hidden col-md-12 centering-div">
+            <p>The password is "<span class="word-pick"></span>."</p>
+          </div>
+        </div>
+        <div class="row">
+          <div id="restart-btn-container" class="btn-holder hidden col-md-12 centering-div">
+            <button id="restart-btn">Reset</button>
+          </div>
         </div>
       </div>
     </div>
-    <div id="footer">
-      <div class="centered-div centering-div">
-        <p>HackBoy 3000 keeps track of eliminated words so you don't have to.
-        It always picks<br>the optimal next guess,
+    <footer class="footer">
+      <div class="container centering-div">
+        <p>HackBoy 3000 keeps track of eliminated words so<br>you don't have to.
+        It always picks the optimal next guess,<br>
         which is the word likeliest to eliminate the most options.</p>
         <a href="https://github.com/sinclairtarget/hack-boy-3000">
           <img src="github_logo.png">
         </a>
       </div>
-    </div>
+    </footer>
   </body>
 </html>
